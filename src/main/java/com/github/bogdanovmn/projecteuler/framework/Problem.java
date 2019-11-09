@@ -20,7 +20,7 @@ public abstract class Problem {
 	public final void printAnswer() {
 		calulateSolution();
 		System.out.printf("func(%s) = %s%n", parameters, solution);
-		System.out.printf("Time: %d", solutionCalculationTimeInSeconds);
+		System.out.printf("Time: %ds%n", solutionCalculationTimeInSeconds);
 	}
 
 	private synchronized void calulateSolution() {
