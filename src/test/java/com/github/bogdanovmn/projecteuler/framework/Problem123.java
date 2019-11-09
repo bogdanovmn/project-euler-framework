@@ -7,9 +7,7 @@ class Problem123 extends Problem {
 	}
 
 	@Override
-	public String answer() {
-		return String.valueOf(
-			parameters.getInt(1) * 10
-		);
+	public long solution() {
+		return parameters.getLong(1) * 10;
 	}
 }

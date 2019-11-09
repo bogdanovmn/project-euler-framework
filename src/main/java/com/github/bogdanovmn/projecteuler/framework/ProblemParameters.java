@@ -7,9 +7,22 @@ public class ProblemParameters {
 		this.rawParameters = rawParameters;
 	}
 
-	public Integer getInt(int index) {
-		return Integer.parseInt(
+	public long getLong(int index) {
+		if (rawParameters.length < index) {
+			throw new IllegalArgumentException(
+				String.format(
+					"Can't find any parameter with index %d. There are only %d parameters: [%s]",
+						index, rawParameters.length, toString()
+				)
+			);
+		}
+		return Long.parseLong(
 			rawParameters[index - 1]
 		);
+	}
+
+	@Override
+	public String toString() {
+		return String.join(",", rawParameters);
 	}
 }

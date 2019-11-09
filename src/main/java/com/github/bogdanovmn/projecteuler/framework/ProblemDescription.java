@@ -3,12 +3,16 @@ package com.github.bogdanovmn.projecteuler.framework;
 import org.reflections.Reflections;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 import java.util.Set;
 
 public class ProblemDescription {
 	private final String[] inputArgs;
 
-	public ProblemDescription(String[] inputArgs) {
+	public ProblemDescription(String... inputArgs) {
+		if (inputArgs.length < 1) {
+			throw new IllegalArgumentException("At least one parameter must be specified: the problem number");
+		}
 		this.inputArgs = inputArgs;
 	}
 
@@ -17,11 +21,11 @@ public class ProblemDescription {
 	}
 
 	private String[] parameters() {
-		return inputArgs;
+		return Arrays.copyOfRange(inputArgs, 1, inputArgs.length);
 	}
 
 	public Problem problem() {
-		Set<Class<?>> annotated = new Reflections("com.github").getTypesAnnotatedWith(ProjectEulerProblem.class);
+		Set<Class<?>> annotated = new Reflections("").getTypesAnnotatedWith(ProjectEulerProblem.class);
 		Class<?> aClass = annotated.stream()
 			.filter(cl ->
 				cl.getAnnotation(ProjectEulerProblem.class).number() == number()
@@ -35,8 +39,12 @@ public class ProblemDescription {
 				)
 			);
 		try {
-			return (Problem) aClass.getConstructor(ProblemParameters.class).newInstance(new ProblemParameters(inputArgs));
-		} catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+			return (Problem) aClass.getConstructor(ProblemParameters.class)
+				.newInstance(
+					new ProblemParameters(parameters())
+				);
+		}
+		catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
 			e.printStackTrace();
 			throw new IllegalStateException(
 				String.format(

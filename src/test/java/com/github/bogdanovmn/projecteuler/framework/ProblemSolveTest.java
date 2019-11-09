@@ -9,12 +9,10 @@ public class ProblemSolveTest {
 
 	@Test
 	public void solution() {
-		ProblemDescription problemDescription = new ProblemDescription(
-			new String[] {"123", "10"}
-		);
+		ProblemDescription problemDescription = new ProblemDescription("123", "10");
 		assertThat(
 			problemDescription.problem().answer(),
-			is("1230")
+			is(100L)
 		);
 	}
 }

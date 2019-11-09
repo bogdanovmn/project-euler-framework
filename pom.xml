@@ -6,7 +6,7 @@
 
 	<groupId>com.github.bogdanovmn.projecteuler.framework</groupId>
 	<artifactId>project-euler-framework</artifactId>
-	<version>0.1</version>
+	<version>0.3.0</version>
 
 	<properties>
 		<encoding>UTF-8</encoding>
@@ -52,7 +52,7 @@
 	<distributionManagement>
 		<repository>
 			<id>bintray-repo-maven</id>
-			<url>https://api.bintray.com/maven/bogdanovmn/maven-repo/;publish=1</url>
+			<url>https://api.bintray.com/maven/bogdanovmn/maven-repo/project-euler-framework/;publish=1</url>
 		</repository>
 	</distributionManagement>
 
