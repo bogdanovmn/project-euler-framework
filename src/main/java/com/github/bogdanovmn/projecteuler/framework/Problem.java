@@ -1,35 +1,49 @@
 package com.github.bogdanovmn.projecteuler.framework;
 
+import java.text.NumberFormat;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Locale;
 
 public abstract class Problem {
 	protected final ProblemParameters parameters;
 	private Long solution;
 	private long solutionCalculationTimeInSeconds;
+	private long iterations;
 
 	public Problem(ProblemParameters parameters) {
 		this.parameters = parameters;
 	}
 
 	public final long answer() {
-		calulateSolution();
+		calculateSolution();
 		return solution;
 	}
 
 	public final void printAnswer() {
-		calulateSolution();
-		System.out.printf("func(%s) = %s%n", parameters, solution);
-		System.out.printf("Time: %ds%n", solutionCalculationTimeInSeconds);
+		calculateSolution();
+		System.out.printf("Func(%s) = %s%n", parameters, solution);
+		System.out.printf("Time: %.3fs%n", solutionCalculationTimeInSeconds / 1000.0);
+		if (iterations > 0) {
+			System.out.printf(
+				"Iterations: %s%n",
+					NumberFormat.getNumberInstance(Locale.GERMAN)
+						.format(iterations)
+			);
+		}
 	}
 
-	private synchronized void calulateSolution() {
+	private synchronized void calculateSolution() {
 		if (solution == null) {
 			LocalTime now = LocalTime.now();
 			solution = solution();
-			solutionCalculationTimeInSeconds = ChronoUnit.SECONDS.between(now, LocalTime.now());
+			solutionCalculationTimeInSeconds = ChronoUnit.MILLIS.between(now, LocalTime.now());
 		}
 	}
 
 	protected abstract long solution();
+
+	protected void incIterations() {
+		iterations++;
+	}
 }
