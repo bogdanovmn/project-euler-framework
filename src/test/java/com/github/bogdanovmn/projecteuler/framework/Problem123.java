@@ -8,6 +8,6 @@ class Problem123 extends Problem {
 
 	@Override
 	public long solution() {
-		return parameters.getLong(1) * 10;
+		return parameters.getLong(1) * 9;
 	}
 }

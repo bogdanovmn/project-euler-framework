@@ -17,7 +17,7 @@ public class ProblemParameters {
 			);
 		}
 		return Long.parseLong(
-			rawParameters[index - 1]
+			rawParameters[index - 1].replaceAll("_", "")
 		);
 	}
 
