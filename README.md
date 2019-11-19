@@ -6,7 +6,7 @@
 <dependency>
     <groupId>com.github.bogdanovmn.projecteuler.framework</groupId>
     <artifactId>project-euler-framework</artifactId>
-    <version>0.4.0</version>
+    <version>0.5.0</version>
 </dependency>
 
 ...

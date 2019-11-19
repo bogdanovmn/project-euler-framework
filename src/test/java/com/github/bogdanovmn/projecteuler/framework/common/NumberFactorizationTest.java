@@ -64,6 +64,17 @@ public class NumberFactorizationTest {
 	}
 
 	@Test
+	public void isRootableOf() {
+		assertTrue(
+			NumberFactorization.of(2*2*2*2*2*2 * 3*3*3).isRootableOf(3)
+		);
+
+		assertFalse(
+			NumberFactorization.of(2*2 * 3*3 * 5).isRootableOf(3)
+		);
+	}
+
+	@Test
 	public void power() {
 		assertEquals(
 			"20^3 is 8000",

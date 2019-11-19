@@ -68,8 +68,12 @@ public class NumberFactorization {
 	}
 
 	public boolean isSqrtable() {
+		return isRootableOf(2);
+	}
+
+	public boolean isRootableOf(int power) {
 		return components.values().stream()
-			.noneMatch(x -> x % 2 != 0);
+			.noneMatch(x -> x % power != 0);
 	}
 
 	public HashMap<Long, Integer> components() {
