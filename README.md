@@ -1,26 +1,17 @@
 
 # How to use it
 
-## 1. Get the dependency
+## 1. Get the latest dependency
+[![Maven Central](
+    https://maven-badges.herokuapp.com/maven-central/com.github.bogdanovmn.cmdline/project-euler-framework/badge.svg
+)]( https://maven-badges.herokuapp.com/maven-central/com.github.bogdanovmn.cmdline/project-euler-framework)
+
 ```xml
 <dependency>
     <groupId>com.github.bogdanovmn.projecteuler.framework</groupId>
     <artifactId>project-euler-framework</artifactId>
-    <version>0.5.0</version>
+    <version>...</version>
 </dependency>
-
-...
-
-<repositories>
-    <repository>
-        <snapshots>
-            <enabled>true</enabled>
-        </snapshots>
-        <id>my</id>
-        <name>bintray</name>
-        <url>https://dl.bintray.com/bogdanovmn/maven-repo</url>
-    </repository>
-</repositories>
 ```
 
 ## 2. Create an entry point for all problems. It will be convenient to play with various input via console
@@ -36,7 +27,7 @@ public class App {
 }
 ``` 
 
-## 3. Implement a solution of the problem
+## 3. Implement a solution of a problem
 ```java
 import com.github.bogdanovmn.projecteuler.framework.Problem;
 import com.github.bogdanovmn.projecteuler.framework.ProblemParameters;
@@ -86,5 +77,5 @@ func(100000000000) = 9043580029263163052
 Time: 186s
 ```
 As you can guess, the first argument is a problem number. 
-Next arguments are any input which could be used for solving a problem.
+Next arguments are any input that could be used for solving of a problem.
    
