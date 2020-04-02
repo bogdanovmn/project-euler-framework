@@ -3,8 +3,8 @@
 
 ## 1. Get the latest dependency
 [![Maven Central](
-    https://maven-badges.herokuapp.com/maven-central/com.github.bogdanovmn.cmdline/project-euler-framework/badge.svg
-)]( https://maven-badges.herokuapp.com/maven-central/com.github.bogdanovmn.cmdline/project-euler-framework)
+    https://maven-badges.herokuapp.com/maven-central/com.github.bogdanovmn.projecteuler.framework/project-euler-framework/badge.svg
+)]( https://maven-badges.herokuapp.com/maven-central/com.github.bogdanovmn.projecteuler.framework/project-euler-framework)
 
 ```xml
 <dependency>
